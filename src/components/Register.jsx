@@ -222,6 +222,30 @@ const Register = () => {
                                 <MenuItem value="Blockchain Seminar">Blockchain Seminar</MenuItem>
                             </Select>
                         </Grid>
+
+                        <Grid item xs={12} sm={5}>
+                            <TextField 
+                                fullWidth 
+                                label="College" 
+                                name="college" 
+                                variant="outlined" 
+                                value={formData.college} 
+                                onChange={handleChange} 
+                                InputProps={{ style: { color: "white" } }}
+                                sx={{ 
+                                    zIndex: 10, 
+                                    input: { color: "white" }, 
+                                    label: { color: "white" }, 
+                                    "& .MuiOutlinedInput-root": { 
+                                        "& fieldset": { border: "2px solid white", boxShadow: "0 0 10px cyan", borderRadius: "20px" }, 
+                                        "&:hover fieldset": { borderColor: "cyan" }, 
+                                        "&.Mui-focused fieldset": { borderColor: "cyan" } 
+                                    } 
+                                }}
+                            />
+                        </Grid>
+
+                        
                     </Grid>
 
                     {/* Submit Button */}
