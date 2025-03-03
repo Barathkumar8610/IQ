@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(45deg,#08223e,#15367d,#0d2c52,#010205);
+    background: linear-gradient(135deg, #cebaba, #110648, #06132e, #000000);
     background-size:cover;
     overflow: hidden;
     animation: float 4s ease-in-out infinite;

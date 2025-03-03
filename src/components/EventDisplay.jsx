@@ -40,6 +40,38 @@ const stars = generateStars(100);
 const EventDisplay = () => {
   return (
     <motion.div className="event-container">
+
+
+      <div className="stars">
+                      {stars.map((_, index) => {
+                          const size = Math.random() * 3 + 0.5;
+                          const x = Math.random() * 100;
+                          const y = Math.random() * 100;
+                          const delay = Math.random() * 2;
+      
+                          return (
+                              <motion.div
+                                  key={index}
+                                  className="star"
+                                  style={{
+                                      width: size,
+                                      height: size,
+                                      top: `${y}%`,
+                                      left: `${x}%`,
+                                  }}
+                                  animate={{
+                                      opacity: [0.3, 1, 0.3],
+                                  }}
+                                  transition={{
+                                      duration: 2,
+                                      repeat: Infinity,
+                                      repeatType: "mirror",
+                                      delay: delay,
+                                  }}
+                              />
+                          );
+                      })}
+                  </div>
       <h1>hello</h1>
       {stars.map((star, index) => (
         <motion.div
@@ -82,16 +114,27 @@ const EventDisplay = () => {
           const finalY = bendY + (radius - bendDistance) * Math.sin(angle + bendAngle);
 
           return (
-            <motion.path
-  key={index}
-  d={`M ${startX} ${startY} L ${bendX} ${bendY} L ${finalX} ${finalY}`}
-  initial={{ pathLength: 0 ,opacity:0}}
-  animate={{ pathLength: 1 ,opacity:1}}
-  transition={{ duration: 2, ease: "easeInOut", delay: index * 0.4 }}
-  stroke="rgba(173, 216, 230, 0.8)"
-  strokeWidth="2"
-  fill="transparent"
-/>
+//             <motion.path
+//   key={index}
+//   d={`M ${startX} ${startY} L ${bendX} ${bendY} L ${finalX} ${finalY}`}
+//   initial={{ pathLength: 0 ,opacity:0}}
+//   animate={{ pathLength: 1 ,opacity:[0,0.25,0.5,0.75,1]}}
+//   transition={{ duration: 2, ease: "easeInOut", delay: index * 0.4 }}
+//   stroke="rgba(173, 216, 230, 0.8)"
+//   strokeWidth="2"
+//   fill="transparent"
+// />
+
+        <motion.path
+            key={index}
+            d={`M ${startX} ${startY} L ${bendX} ${bendY} L ${finalX} ${finalY}`}
+            initial={{ strokeDasharray: "0 1", strokeDashoffset: 1}}
+            animate={{ strokeDasharray: "1 0", strokeDashoffset: 0}}
+            transition={{ duration: 2, ease: "easeInOut", delay: index * 1.5 }}
+            stroke="rgba(173, 216, 230, 0.8)"
+            strokeWidth="2"
+            fill="transparent"
+          />    
 
           );
         })}
